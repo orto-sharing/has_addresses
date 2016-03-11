@@ -1,3 +1,6 @@
+require 'rails/generators'
+require 'rails/generators/migration'
+
 module HasAddresses
   class HasAddressesGenerator < Rails::Generator::Base
     def manifest
