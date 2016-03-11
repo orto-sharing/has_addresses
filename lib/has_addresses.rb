@@ -7,6 +7,10 @@ module HasAddresses
     def has_addresses
       has_many :addresses, :as => :addressable
     end
+
+    def primary_address
+      addresses.home.first
+    end
   end
 end
 

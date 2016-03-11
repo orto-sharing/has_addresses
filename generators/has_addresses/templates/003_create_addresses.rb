@@ -8,6 +8,7 @@ class CreateAddresses < ActiveRecord::Migration
       t.references :region
       t.string :custom_region
       t.string :postal_code, :null => false
+      t.integer :address_type, default: 0
       t.references :country
       t.timestamps
     end

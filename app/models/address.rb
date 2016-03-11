@@ -26,6 +26,8 @@ class Address < ActiveRecord::Base
                   :custom_region, :country
   
   before_validation :ensure_exclusive_references, :set_region_attributes
+
+  enum address_type: [:home, :office, :other]
   
   # Gets the name of the region that this address is for (whether it is a
   # custom or known region in the database)
@@ -121,6 +123,8 @@ class Address < ActiveRecord::Base
     
     # Sets the attributes on the address based on the region (if available)
     def set_region_attributes
+
+      enumerable :address_type, []
       self.country = region.country if region
     end
 end
